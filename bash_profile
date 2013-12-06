@@ -28,3 +28,7 @@ done
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
+
+PATH=/Users/XemaCobra/.apportable/SDK/bin:/usr/local/heroku/bin:/Users/XemaCobra/.rvm/gems/ruby-1.9.3-p327/bin:/Users/XemaCobra/.rvm/gems/ruby-1.9.3-p327@global/bin:/Users/XemaCobra/.rvm/rubies/ruby-1.9.3-p327/bin:/Users/XemaCobra/.rvm/bin:/Applications/android-sdk-macosx/platform-tools:./node_modules/.bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin:.:/Users/XemaCobra/.rvm/bin
+PATH=/Users/XemaCobra/.apportable/SDK/bin:/usr/local/heroku/bin:/Users/XemaCobra/.rvm/gems/ruby-1.9.3-p327/bin:/Users/XemaCobra/.rvm/gems/ruby-1.9.3-p327@global/bin:/Users/XemaCobra/.rvm/rubies/ruby-1.9.3-p327/bin:/Users/XemaCobra/.rvm/bin:/Applications/android-sdk-macosx/platform-tools:./node_modules/.bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin:.:/Users/XemaCobra/.rvm/bin
+
