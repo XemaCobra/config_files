@@ -41,7 +41,7 @@ function _parse_git_part {
 }
 
 function _parse_ruby_version {
-  rvm-prompt v p g
+  rbenv version-name
 }
 
 function _parse_ruby_part {
