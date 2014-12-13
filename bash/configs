@@ -11,17 +11,13 @@ if [ -s "$HOME/.rbenv" ]; then
   eval "$(rbenv init -)"
 fi
 
+if [ -s "/usr/local/opt/chruby/share/chruby/chruby.sh" ]; then
+  source /usr/local/opt/chruby/share/chruby/chruby.sh
+  source /usr/local/opt/chruby/share/chruby/auto.sh
+fi
+
 # Make C-a/C-e work as home/end
 set -o emacs
-
-# If this is an xterm set the title to user@host:dir
-case "$TERM" in
-xterm*|rxvt*)
-    PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME}: ${PWD/$HOME/~}\007"'
-    ;;
-*)
-    ;;
-esac
 
 GREEN="\[\033[0;32m\]"
 WHITE="\[\033[1;37m\]"
@@ -61,16 +57,18 @@ function exitstatus {
   else
     PS1="\n$RED\w$NONE \$(_print_prompt)\n${RED}✘$NONE "
   fi
+  echo -ne "\033]0;${PWD##*/}\007"
 }
 
 PROMPT_COMMAND=exitstatus
 
-export RUBY_GC_MALLOC_LIMIT=1000000000
-export RUBY_HEAP_SLOTS_GROWTH_FACTOR=1.25
-export RUBY_HEAP_MIN_SLOTS=800000
-export RUBY_FREE_MIN=600000
+export RUBY_GC_HEAP_INIT_SLOTS=600000
+export RUBY_GC_HEAP_FREE_SLOTS=600000
+export RUBY_GC_HEAP_GROWTH_FACTOR=1.25
+export RUBY_GC_HEAP_GROWTH_MAX_SLOTS=300000
 
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
 
 export LOLCOMMITS_FORK=1
+export LOLCOMMITS_DELAY=10
