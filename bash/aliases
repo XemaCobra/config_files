@@ -83,7 +83,9 @@ alias gs="git s"
 alias ga="git a"
 alias gst="git st"
 alias gb="git b"
+alias gbb="git bb"
 alias gc="git c"
+alias gca="git ca"
 alias gd="git d"
 alias gdc="git dc"
 alias gpl="git pl"
@@ -103,9 +105,9 @@ alias sta="git stash"
 alias uns="git stash pop"
 
 # file system stuff
-alias ls="ls -Fh"
-alias ll="ls -Al"
-alias l="ls -AF"
+alias ls="ls -FhG"
+alias ll="ls -AlG"
+alias l="ls -AFG"
 function c { cd ~/code/$1; }
 alias ..='cd ..'
 alias ...='cd ../..'
