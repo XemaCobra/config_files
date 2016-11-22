@@ -32,7 +32,7 @@
   rc = rebase --continue
   ra = rebase --abort
   ri = rebase -i
-  me = log --date=local --pretty=short --author=xemacobra@gmail.com --stat
+  me = log --date=local --pretty=short --author=ehab@hamtaw.com --stat
   qpl = log --pretty=\"%Cblue%h%Creset %Cgreen[%cr]%Creset %s\" origin/production..origin/master
   g = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr by %C(yellow)%an%Creset)%Creset' --abbrev-commit --date=relative
   ci = commit
@@ -44,7 +44,7 @@
   who = blame -CCCw
 [user]
 	name = Ehab Abdou
-	email = xemacobra@gmail.com
+	email = ehab@hamtaw.com
 [help]
   autocorrect = 1
 [branch]
