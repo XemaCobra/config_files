@@ -29,7 +29,7 @@ done
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
 
-{+export PATH="$HOME/.fastlane/bin:$PATH"+}
+export PATH="$HOME/.fastlane/bin:$PATH"
 
-{+export PATH="$HOME/.rbenv/bin:$PATH"+}
-{+eval "$(rbenv init -)"+}
+export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init -)"
