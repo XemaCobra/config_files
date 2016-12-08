@@ -5,7 +5,7 @@ task :install do
   replace_all = false
   Dir['*'].each do |file|
     next if %w[Rakefile README.rdoc].include? file
-    
+
     if File.exist?(File.join(ENV['HOME'], ".#{file}"))
       if File.identical? file, File.join(ENV['HOME'], ".#{file}")
         puts "identical ~/.#{file}"
@@ -35,6 +35,8 @@ task :install do
   else
     Kernel.exec 'git clone http://github.com/gmarik/vundle.git ~/.vim/bundle/vundle'
   end
+
+  Kernel.exec 'r!'
 end
 
 task :default => :install

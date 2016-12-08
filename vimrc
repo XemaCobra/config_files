@@ -22,6 +22,9 @@ Bundle 'git://git.wincent.com/command-t.git'
 " vivid chalk color scheme
 Bundle 'tpope/vim-vividchalk'
 
+Bundle 'kien/ctrlp.vim'
+Bundle 'kchmck/vim-coffee-script'
+
 
 " open a NERDTree automatically when directory is opened
 autocmd vimenter * if !argc() | NERDTree | endif
@@ -200,3 +203,5 @@ let g:Tlist_Ctags_Cmd="ctags --exclude='*.js'"
 " Window navigation
 nmap <C-J> <C-W><C-J>
 nmap <C-K> <C-W><C-K>
+
+imap qq <ESC>

@@ -1,6 +1,6 @@
 shopt -s histappend
 
-export EDITOR="subl -w"
+export EDITOR="subl3 -w"
 
 export HISTCONTROL=ignoreboth
 export HISTSIZE=100000
@@ -25,6 +25,7 @@ BLUE="\[\033[1;34m\]"
 BACKGROUND="\[\033[48;5;235m\]"
 NONE="\[\033[0m\]"
 
+# PS functions
 _ps1_fg() {
   echo -n "\033[38;5;$1m"
 }
@@ -59,6 +60,34 @@ _parse_git_part() {
   fi
 }
 
+_add_bg() {
+  echo -n "$(_ps1_bg $1)$(_ps1_fg $1)"
+}
+
+_parse_ruby_version() {
+  rbenv version-name
+}
+
+_parse_ruby_part() {
+  echo -n "(ruby-$(_parse_ruby_version))"
+}
+
+_print_prompt() {
+  printf "$(_parse_git_part)$(_ps1_clear)"
+}
+
+_print_user() {
+  echo -n "$(_add_bg 234)$(_ps1_fg 112) \u $(_ps1_clear)"
+}
+
+_print_directory() {
+  echo -n "$(_add_bg 235)$(_ps1_fg 197) \w $(_ps1_clear)"
+}
+
+_separator() {
+  echo -n "$(_ps1_fg 255)|$(_ps1_clear)"
+}
+
 exitstatus() {
   EXITSTATUS="$?"
 
@@ -68,6 +97,7 @@ exitstatus() {
   else
     PS1="\n$(_ps_green) \t $(_ps_clear)|$(_ps_red) \w $(_ps_clear)$(_parse_git_part)\n${RED}✘$NONE "
   fi
+  
   echo -ne "\033]0;${PWD##*/}\007"
 }
 

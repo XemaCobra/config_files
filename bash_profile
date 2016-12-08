@@ -14,7 +14,7 @@ fi
 # first in PATH is bundler's bin folder
 export PATH=,:"${PATH}"
 
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+export PATH="$HOME/code/sdk/platform-tools:$PATH"
 
 # {{{
 # Node Completion - Auto-generated, do not touch.
@@ -29,6 +29,7 @@ done
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
 
-PATH=/Users/XemaCobra/.apportable/SDK/bin:/usr/local/heroku/bin:/Users/XemaCobra/.rvm/gems/ruby-1.9.3-p327/bin:/Users/XemaCobra/.rvm/gems/ruby-1.9.3-p327@global/bin:/Users/XemaCobra/.rvm/rubies/ruby-1.9.3-p327/bin:/Users/XemaCobra/.rvm/bin:/Applications/android-sdk-macosx/platform-tools:./node_modules/.bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin:.:/Users/XemaCobra/.rvm/bin
-PATH=/Users/XemaCobra/.apportable/SDK/bin:/usr/local/heroku/bin:/Users/XemaCobra/.rvm/gems/ruby-1.9.3-p327/bin:/Users/XemaCobra/.rvm/gems/ruby-1.9.3-p327@global/bin:/Users/XemaCobra/.rvm/rubies/ruby-1.9.3-p327/bin:/Users/XemaCobra/.rvm/bin:/Applications/android-sdk-macosx/platform-tools:./node_modules/.bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin:.:/Users/XemaCobra/.rvm/bin
+{+export PATH="$HOME/.fastlane/bin:$PATH"+}
 
+{+export PATH="$HOME/.rbenv/bin:$PATH"+}
+{+eval "$(rbenv init -)"+}

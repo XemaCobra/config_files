@@ -29,9 +29,12 @@ function grep4 {
   }'
 }
 
-# open man pages in mate
-function tman {
-  MANWIDTH=160 MANPAGER='col -bx' man $@ | mate
+space() {
+  if hash gsort 2>/dev/null; then
+    du -hs * | gsort -hr
+  else
+    du -k * | sort -nr | cut -f2 | xargs du -sh
+  fi
 }
 
 # rails stuff
@@ -40,6 +43,9 @@ alias remigrate="rake db:migrate && rake db:migrate:redo"
 alias tlog='tail -f log/development.log'
 alias bi='bundle install --binstubs=, --path=.bundle/gems'
 alias bu='bundle update'
+alias be='bundle exec'
+alias ms="be rake db:migrate db:seed && be rake db:migrate db:seed RAILS_ENV=test"
+alias msi="be rake db:migrate_and_seed && be rake db:migrate_and_seed RAILS_ENV=test"
 
 # git stuff
 g() {
@@ -50,13 +56,27 @@ g() {
   fi
 }
 
+gau() {
+  g | grep "UU" | xargs -n2 echo | sed 's/UU//' | xargs -n1 git add
+}
+
+imgalpha() {
+  /Applications/ImageAlpha.app/Contents/MacOS/pngquant $2 $1/*png --ext .png --force
+}
+
 gpr() {
   originurl=$(git config --get remote.origin.url)
   originurl=${originurl/git\@github\.com\:/https://github.com/}
   originurl=${originurl/\git:/https:}
   originurl=${originurl/\.git/}
   branchName=$(git rev-parse --abbrev-ref HEAD)
-  giturl=$originurl"/compare/"$branchName"?expand=1"
+
+  if [ $# -eq 0 ]; then
+    giturl=$originurl"/compare/"$branchName"?expand=1"
+  else
+    giturl=$originurl"/compare/"$1"..."$branchName"?expand=1"
+  fi
+
   open $giturl
 }
 
@@ -77,15 +97,26 @@ gbc() {
   git branch --merged | grep -v "\*" | xargs -n 1 git branch -d
 }
 
+grn() {
+  git branch -m $1 $2
+  git push origin :$1
+  git push --set-upstream origin $2
+}
+
 alias gadd="git add -u && git add . && git status"
 alias gi="gem install"
 alias gs="git s"
+alias gap="git ap"
 alias ga="git a"
 alias gst="git st"
 alias gb="git b"
 alias gbb="git bb"
 alias gc="git c"
+alias gci="git ci"
 alias gca="git ca"
+alias gsc="git sc"
+alias gcln="git clean -fd"
+alias gcm="git co master"
 alias gd="git d"
 alias gdc="git dc"
 alias gpl="git pl"
@@ -97,8 +128,13 @@ alias gbs="git bs"
 alias grb="git rb"
 alias grc="git rc"
 alias gra="git ra"
+alias gri="git ri"
 alias gf="git f"
 alias gup="git up"
+alias gm="git merge"
+alias gmm="git merge master"
+alias gsh="git sh"
+alias zom="git sck | cut -f3 -d' ' | xargs -n 1 git log -n 1 --pretty=oneline"
 
 # git stash
 alias sta="git stash"
@@ -119,7 +155,9 @@ alias rs="rails s"
 alias rg="rails g"
 
 # other stuff
-#alias s="screen"
+alias r!="source ~/.bash_profile"
+alias configs="cd ~/.config_files"
+alias fuck='eval $(thefuck $(fc -ln -1)); history -r'
 
 # screen replacement
 alias tu="tmux"
@@ -127,7 +165,7 @@ alias tua="tmux attach -t"
 alias tun="tmux new -s"
 alias tus="tmux switch-client -t"
 
-alias e='subl .'
+alias e='subl3 .'
 
 # hack && ship
 alias hs="hack && ship"

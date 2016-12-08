@@ -4,7 +4,7 @@
 
 == Installation
 
-  git clone git://github.com/pitr/config_files ~/.config_files
+  git clone git://github.com/xemacobra/config_files ~/.config_files
   cd ~/.config_files
   rake install
 

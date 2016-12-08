@@ -15,7 +15,7 @@ chatnets = {
     max_whois = "4";
     max_query_chans = "5";
   };
-  EFNet = { 
+  EFNet = {
     type = "IRC";
     max_kicks = "4";
     max_msgs = "3";
@@ -207,9 +207,9 @@ statusbar = {
 };
 settings = {
   core = {
-    real_name = "pitr";
-    user_name = "pitr";
-    nick = "pitr";
+    real_name = "nathan";
+    user_name = "nathan";
+    nick = "nathan";
     timestamp_format = "%H:%M:%S";
   };
   "fe-text" = { actlist_sort = "refnum"; };
