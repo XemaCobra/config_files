@@ -12,8 +12,8 @@
 [format]
   pretty = %Cblue%h%Creset %Cgreen[%cr]%Creset (%an) %s
 [alias]
-  b = branch -v
-  bb = branch -a -v
+  b = branch -vv
+  bb = branch -a -vv
   c = commit -m
   a = add
   co = checkout
@@ -45,6 +45,11 @@
 [user]
 	name = Ehab Abdou
 	email = ehab@hamtaw.com
+  useconfigonly = true
+[branch]
+  autosetuprebase = always
+[credential]
+  helper = osxkeychain
 [help]
   autocorrect = 1
 [branch]
