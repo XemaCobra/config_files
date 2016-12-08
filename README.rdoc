@@ -1,4 +1,5 @@
-= Pitr's Dot Files
+= Ehab's Dot Files 
+***Forked from Pitr's Dot Files***
 
 ***IMPORTANT*** change name and email in `.gitconfig` after installation
 
