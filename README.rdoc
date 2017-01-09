@@ -1,4 +1,6 @@
 = Ehab's Dot Files 
+
+{<img src="https://api.codacy.com/project/badge/Grade/db5f913341954e7faa1a130ded4c7750" alt="Codacy Badge">}[https://www.codacy.com/app/xemacobra/config_files?utm_source=github.com&utm_medium=referral&utm_content=xemacobra/config_files&utm_campaign=badger]
 ***Forked from Pitr's Dot Files***
 
 ***IMPORTANT*** change name and email in `.gitconfig` after installation
